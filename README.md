@@ -1,3 +1,10 @@
-# Fondements des conteneurs Docker <img width="1652" height="175" alt="image" src="https://github.com/user-attachments/assets/0070c457-0529-417d-bcd7-b23112010c70" />
+# Fondements des conteneurs Docker
 
-Ce répertoire inclut plusieurs exemples pour apprendre les fondements de Docker.
+*   Comprendre les concepts fondamentaux de la conteneurisation
+*   Maîtriser Docker pour créer, exécuter et orchestrer des conteneurs avec la CLI Docker et Docker Compose.
+*   Gérer, stocker et partager des images de conteneurs avec Docker Hub.
+*   Déployer et orchestrer des conteneurs avec Kubernetes
+*   Gérer la mise en réseau et le stockage dans Kubernetes
+*   Optimiser et surveiller Kubernetes avec l’autoscaling et les outils d’observabilité.
+*   Automatiser et gérer les déploiements avec Helm en utilisant les Charts et en gérant les mises à jour et rollbacks.
+
