@@ -1,0 +1,19 @@
+management.endpoint.health.show-details: always
+
+spring:
+  kafka:
+    listener:
+      missingTopicsFatal: false
+    consumer:
+      properties.spring.json.trusted.packages: com.example.demo.model
+      auto-offset-reset: earliest
+      value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
+    producer:
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+
+  output:
+    ansi:
+      enabled: always
+  sql:
+    init:
+      mode: always
