@@ -1,0 +1,49 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "To-Do";
+}
+
+<div class="row justify-content-center">
+    <div class="col-12 col-md-10 col-lg-8">
+        <h1 class="mb-4">To-Do</h1>
+
+        <form method="post" asp-page-handler="Add" class="input-group mb-4">
+            <input asp-for="NewTitle" class="form-control" placeholder="Add a new task..." />
+            <button type="submit" class="btn btn-primary">Add</button>
+        </form>
+
+        @if (Model.Items.Count == 0)
+        {
+            <div class="alert alert-info">No tasks yet. Add your first one!</div>
+        }
+        else
+        {
+            <ul class="list-group mb-3">
+                @foreach (var item in Model.Items)
+                {
+                    <li class="list-group-item d-flex align-items-center justify-content-between">
+                        <div class="d-flex align-items-center gap-3">
+                            <form method="post" asp-page-handler="Toggle" class="m-0 p-0">
+                                <input type="hidden" name="id" value="@item.Id" />
+                                <button class="btn btn-sm @(item.IsDone ? "btn-success" : "btn-outline-secondary")" title="Toggle done" type="submit">
+                                    @(item.IsDone ? "✓" : "○")
+                                </button>
+                            </form>
+                            <span class="@(item.IsDone ? "todo-done" : null)">@item.Title</span>
+                        </div>
+                        <form method="post" asp-page-handler="Delete" class="m-0 p-0">
+                            <input type="hidden" name="id" value="@item.Id" />
+                            <button class="btn btn-sm btn-outline-danger" type="submit">Delete</button>
+                        </form>
+                    </li>
+                }
+            </ul>
+
+            <form method="post" asp-page-handler="Clear">
+                <button class="btn btn-outline-secondary" type="submit">Clear All</button>
+            </form>
+        }
+    </div>
+    
+</div>
